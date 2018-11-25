@@ -1,0 +1,14 @@
+
+iOS/bin/
+
+iOS/obj/
+
+MovieApp\.API/bin/
+
+MovieApp\.API/obj/
+
+MovieApp\.Core/bin/
+
+MovieApp\.Core/obj/
+
+TestMovieApp/obj/
