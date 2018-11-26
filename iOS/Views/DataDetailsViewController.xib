@@ -1,18 +1,63 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703" />
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataDetailsViewController">
             <connections>
-                <outlet property="view" destination="2" id="RRd-Eg-VrN" />
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder" />
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="2">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600" />
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite" />
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdk-c5-HEt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aA5-Mo-evs">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VQ5-T5-bN7">
+                                    <rect key="frame" x="67.5" y="0.0" width="240" height="128"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtH-mn-jFH">
+                                    <rect key="frame" x="166.5" y="128" width="42" height="539"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="aA5-Mo-evs" firstAttribute="centerY" secondItem="bdk-c5-HEt" secondAttribute="centerY" id="Edr-Ey-392"/>
+                        <constraint firstItem="aA5-Mo-evs" firstAttribute="centerX" secondItem="bdk-c5-HEt" secondAttribute="centerX" id="Ew6-m7-RHm"/>
+                        <constraint firstItem="aA5-Mo-evs" firstAttribute="top" secondItem="bdk-c5-HEt" secondAttribute="top" id="Gve-oj-NG2"/>
+                        <constraint firstItem="aA5-Mo-evs" firstAttribute="leading" secondItem="bdk-c5-HEt" secondAttribute="leading" id="WrW-jM-Zbv"/>
+                        <constraint firstAttribute="trailing" secondItem="aA5-Mo-evs" secondAttribute="trailing" id="YW9-6y-Wwd"/>
+                        <constraint firstAttribute="bottom" secondItem="aA5-Mo-evs" secondAttribute="bottom" id="hH7-Vb-8Wa"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bdk-c5-HEt" firstAttribute="centerY" secondItem="2" secondAttribute="centerY" id="1PY-4U-b0s"/>
+                <constraint firstAttribute="bottom" secondItem="bdk-c5-HEt" secondAttribute="bottom" id="8Ds-8i-cbg"/>
+                <constraint firstItem="bdk-c5-HEt" firstAttribute="top" secondItem="2" secondAttribute="top" id="AAw-ym-P6q"/>
+                <constraint firstAttribute="trailing" secondItem="bdk-c5-HEt" secondAttribute="trailing" id="Qg7-3O-xbW"/>
+                <constraint firstItem="bdk-c5-HEt" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="e5L-Ga-IlY"/>
+                <constraint firstItem="bdk-c5-HEt" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="mtH-j4-eLT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fa2-aF-tge"/>
         </view>
     </objects>
 </document>
