@@ -109,6 +109,24 @@
     <Reference Include="MvvmCross.Localization">
       <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\packages\MvvmCross.Plugin.DownloadCache.5.7.0\lib\Xamarin.iOS10\MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.DownloadCache.iOS">
+      <HintPath>..\packages\MvvmCross.Plugin.DownloadCache.5.7.0\lib\Xamarin.iOS10\MvvmCross.Plugins.DownloadCache.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS.Support">
+      <HintPath>..\packages\MvvmCross.iOS.Support.5.7.0\lib\Xamarin.iOS10\MvvmCross.iOS.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin-Sidebar-Unified">
+      <HintPath>..\packages\SidebarNavigation.1.9.4\lib\Xamarin.iOS10\Xamarin-Sidebar-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS.Support.XamarinSidebar">
+      <HintPath>..\packages\MvvmCross.iOS.Support.XamarinSidebar.5.7.0\lib\Xamarin.iOS10\MvvmCross.iOS.Support.XamarinSidebar.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -116,10 +134,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Cells\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Views\DataViewController.xib" />
+    <InterfaceDefinition Include="Views\DataDetailsViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\DataCollectionViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -129,10 +151,26 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
+    <Compile Include="Views\DataViewController.cs" />
+    <Compile Include="Views\DataViewController.designer.cs">
+      <DependentUpon>DataViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DataDetailsViewController.cs" />
+    <Compile Include="Views\DataDetailsViewController.designer.cs">
+      <DependentUpon>DataDetailsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\DataCollectionViewCell.cs" />
+    <Compile Include="Views\Cells\DataCollectionViewCell.designer.cs">
+      <DependentUpon>DataCollectionViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
+    <Compile Include="Setup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieApp.Core\MovieApp.Core.csproj">
+      <Project>{C52FE9C0-B7BA-4B49-AC61-00176AA05F21}</Project>
+      <Name>MovieApp.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
