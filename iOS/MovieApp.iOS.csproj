@@ -127,6 +127,9 @@
     <Reference Include="MvvmCross.iOS.Support.XamarinSidebar">
       <HintPath>..\packages\MvvmCross.iOS.Support.XamarinSidebar.5.7.0\lib\Xamarin.iOS10\MvvmCross.iOS.Support.XamarinSidebar.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.Json">
+      <HintPath>..\packages\MvvmCross.Plugin.Json.5.7.0\lib\Xamarin.iOS10\MvvmCross.Plugins.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -136,6 +139,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Cells\" />
+    <Folder Include="Views\ViewSources\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -165,11 +169,17 @@
     </Compile>
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Views\ViewSources\MoviesCollectionViewSource.cs" />
+    <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieApp.Core\MovieApp.Core.csproj">
       <Project>{C52FE9C0-B7BA-4B49-AC61-00176AA05F21}</Project>
       <Name>MovieApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieApp.API\MovieApp.API.csproj">
+      <Project>{0343FD26-81DD-470C-B3FA-E3A59C98FAF7}</Project>
+      <Name>MovieApp.API</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

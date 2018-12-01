@@ -1,7 +1,10 @@
 ﻿using System;
+using MvvmCross.Core.ViewModels;
+
 namespace MovieApp.Core.ViewModels
 {
-    public interface IDataDetailsViewModel
+    public interface IDataDetailsViewModel : IMvxViewModel<IMvxBundle>, IMvxNotifyPropertyChanged
     {
+
     }
 }

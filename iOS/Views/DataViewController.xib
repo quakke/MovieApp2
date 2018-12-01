@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataViewController">
             <connections>
+                <outlet property="MoviesCollectionView" destination="q1c-gQ-aC2" id="wLf-qf-bx2"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>

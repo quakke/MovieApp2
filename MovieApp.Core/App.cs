@@ -1,11 +1,11 @@
 ﻿using System;
-using MovieApp.Core.Services;
-using MovieApp.Core.Services.Implementation;
 using MovieApp.Core.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
 using MvvmCross.Plugins.Messenger;
+using MovieApp.API.Services.Implementation;
+using MovieApp.API.Services;
 
 namespace MovieApp.Core
 {
@@ -13,10 +13,12 @@ namespace MovieApp.Core
     {
         public override void Initialize()
         {
-            CreatableTypes()
-                .EndingWith("Service")
-                .AsInterfaces()
-                .RegisterAsLazySingleton();
+            //CreatableTypes()
+                //.EndingWith("Service")
+                //.AsInterfaces()
+                //.RegisterAsLazySingleton();
+
+            Mvx.RegisterSingleton<IDataService>(() => new DataService());
 
             RegisterAppStart<DataViewModel>();
         }

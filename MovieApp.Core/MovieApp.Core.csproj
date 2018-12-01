@@ -34,6 +34,8 @@
     <Compile Include="ViewModels\DataDetailsViewModel.cs" />
     <Compile Include="ViewModels\DataViewModel.cs" />
     <Compile Include="ViewModels\StartViewModel.cs" />
+    <Compile Include="ViewModels\IDataItemVM.cs" />
+    <Compile Include="ViewModels\DataItemVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
