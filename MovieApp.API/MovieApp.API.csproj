@@ -33,7 +33,7 @@
     <Compile Include="Services\Implementation\DataService.cs" />
     <Compile Include="Services\Fake\FakeDataService.cs" />
     <Compile Include="Models\MovieResponseItem.cs" />
-    <Compile Include="Models\MovieDetailsResponse.cs" />
+    <Compile Include="Models\MoviesResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform">

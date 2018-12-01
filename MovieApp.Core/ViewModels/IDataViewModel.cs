@@ -9,6 +9,6 @@ namespace MovieApp.Core.ViewModels
     {
         IMvxCommand SelectionChangedCommand { get; }
 
-        List<MovieResponseItem> Movies { get; }
+        List<DataItemVM> Movies { get; }
     }
 }

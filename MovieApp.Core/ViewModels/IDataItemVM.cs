@@ -1,14 +1,27 @@
 ﻿using System;
+
 namespace MovieApp.Core.ViewModels
 {
     public interface IDataItemVM
     {
-        string Id { get; }
+        int VoteCount { get; }
+
+        int Id { get; }
+
+        string VoteAverage { get; }
 
         string Title { get; }
 
-        string Description { get; }
+        string Popularity { get; }
 
-        string ImageUrl { get; }
+        string PosterPath { get; }
+
+        string OriginalLanguage { get; }
+
+        string OriginalTitle { get; }
+
+        string Overview { get; }
+
+        string ReleaseDate { get; }
     }
 }

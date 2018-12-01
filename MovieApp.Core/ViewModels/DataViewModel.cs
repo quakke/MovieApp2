@@ -23,7 +23,7 @@ namespace MovieApp.Core.ViewModels
         {
             get
             {
-                return _selectionChangedCommand ?? (_selectionChangedCommand = new MvxCommand<MovieResponseItem>(OnMovieSelected));
+                return _selectionChangedCommand ?? (_selectionChangedCommand = new MvxCommand<DataItemVM>(OnMovieSelected));
             }
         }
 
@@ -31,8 +31,8 @@ namespace MovieApp.Core.ViewModels
 
         #region Properties
 
-        private List<MovieResponseItem> _movies;
-        public List<MovieResponseItem> Movies
+        private List<DataItemVM> _movies;
+        public List<DataItemVM> Movies
         {
             get
             {
@@ -69,7 +69,26 @@ namespace MovieApp.Core.ViewModels
             {
                 var dataSource = await DataService.GetMovies();
 
-                InvokeOnMainThread(() => Movies = dataSource);
+                Movies = new List<DataItemVM>();
+
+                InvokeOnMainThread(() => 
+                {
+                    foreach(var item in dataSource)
+                    {
+                        Movies.Add(new DataItemVM(
+                            vote_count: item.vote_count,
+                            id: item.id,
+                            vote_average: item.vote_average,
+                            title: item.title,
+                            popularity: item.popularity,
+                            poster_path: item.poster_path,
+                            original_language: item.original_language,
+                            original_title: item.original_title,
+                            overview: item.overview,
+                            release_date: item.release_date
+                        ));
+                    }
+                });
             }
             catch(Exception ex)
             {
@@ -77,9 +96,9 @@ namespace MovieApp.Core.ViewModels
             }
         }
 
-        private void OnMovieSelected(MovieResponseItem item)
+        private void OnMovieSelected(DataItemVM item)
         {
-            ShowViewModel<DataDetailsViewModel, MovieResponseItem>(item);
+            ShowViewModel<DataDetailsViewModel, DataItemVM>(item);
         }
 
         #endregion

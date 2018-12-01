@@ -9,9 +9,5 @@ namespace MovieApp.API.Services
     {
         // Получить список всех фильмов
         Task<List<MovieResponseItem>> GetMovies();
-
-        // Полчить информацию по одному фильму
-        Task<MovieDetailsResponse> GetMovieDetails();
-
     }
 }

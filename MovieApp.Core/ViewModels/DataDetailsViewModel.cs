@@ -8,7 +8,7 @@ using MvvmCross.Platform.Platform;
 
 namespace MovieApp.Core.ViewModels
 {
-    public class DataDetailsViewModel : MvxViewModel<MovieResponseItem>
+    public class DataDetailsViewModel : MvxViewModel<DataItemVM>
     {
         #region Fields
 
@@ -20,8 +20,8 @@ namespace MovieApp.Core.ViewModels
 
         #region Properties
 
-        private MovieResponseItem _movieItem;
-        public MovieResponseItem MovieItem
+        private DataItemVM _movieItem;
+        public DataItemVM MovieItem
         {
             get
             {
@@ -37,8 +37,6 @@ namespace MovieApp.Core.ViewModels
 
         #region Services
 
-        protected new IDataService DataService => Mvx.Resolve<IDataService>();
-
         #endregion
 
         #region Constructor
@@ -52,7 +50,6 @@ namespace MovieApp.Core.ViewModels
 
         #region Private
 
-        //загрузка инфы о фильме
         private async Task LoadContent()
         {
             try
@@ -71,7 +68,7 @@ namespace MovieApp.Core.ViewModels
 
         #region Init
 
-        public override void Prepare(MovieResponseItem parameter)
+        public override void Prepare(DataItemVM parameter)
         {
             base.Prepare();
 
