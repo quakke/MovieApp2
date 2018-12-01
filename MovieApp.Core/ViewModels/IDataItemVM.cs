@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace MovieApp.Core.ViewModels
 {
@@ -23,5 +24,7 @@ namespace MovieApp.Core.ViewModels
         string Overview { get; }
 
         string ReleaseDate { get; }
+
+        StringBuilder Description { get; }
     }
 }

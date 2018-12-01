@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataDetailsViewController">
             <connections>
+                <outlet property="DescriptionImageView" destination="VQ5-T5-bN7" id="yR0-C7-rKR"/>
+                <outlet property="DescriptionLabel" destination="EtH-mn-jFH" id="Ud1-kv-wWa"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>
@@ -23,19 +25,27 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdk-c5-HEt">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aA5-Mo-evs">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="aA5-Mo-evs">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VQ5-T5-bN7">
-                                    <rect key="frame" x="67.5" y="0.0" width="240" height="128"/>
+                                    <rect key="frame" x="67.5" y="0.0" width="240" height="184"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="184" id="xkg-LZ-geQ"/>
+                                    </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtH-mn-jFH">
-                                    <rect key="frame" x="166.5" y="128" width="42" height="539"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtH-mn-jFH">
+                                    <rect key="frame" x="0.0" y="196" width="375" height="471"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="EtH-mn-jFH" secondAttribute="trailing" id="CoC-QG-o88"/>
+                                <constraint firstAttribute="bottom" secondItem="EtH-mn-jFH" secondAttribute="bottom" id="NsC-qH-Cfn"/>
+                                <constraint firstItem="EtH-mn-jFH" firstAttribute="leading" secondItem="aA5-Mo-evs" secondAttribute="leading" id="sVf-yA-hfD"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                     <constraints>

@@ -8,7 +8,7 @@ using MvvmCross.Platform.Platform;
 
 namespace MovieApp.Core.ViewModels
 {
-    public class DataDetailsViewModel : MvxViewModel<DataItemVM>
+    public class DataDetailsViewModel : MvxViewModel<DataItemVM>, IDataDetailsViewModel
     {
         #region Fields
 
@@ -50,18 +50,6 @@ namespace MovieApp.Core.ViewModels
 
         #region Private
 
-        private async Task LoadContent()
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                MvxTrace.Error(() => ex.StackTrace);
-            }
-        }
-
         #endregion
 
         #region Protected
@@ -75,6 +63,11 @@ namespace MovieApp.Core.ViewModels
             MovieItem = parameter;
         }
 
+        public void Prepare(IMvxBundle parameter)
+        {
+
+        }
+
         #endregion
 
         #endregion
@@ -84,8 +77,6 @@ namespace MovieApp.Core.ViewModels
 
         public override async Task Initialize()
         {
-            await LoadContent();
-
             await base.Initialize();
 
             return;

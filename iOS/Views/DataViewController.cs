@@ -34,8 +34,8 @@ namespace MovieApp.iOS.Views
             var flowLayout = (moviesCollectionView.CollectionViewLayout as UICollectionViewFlowLayout);
 
             flowLayout.MinimumInteritemSpacing = 8;
-            flowLayout.MinimumLineSpacing = 8;
-            flowLayout.SectionInset = new UIEdgeInsets(8, 8, 8, 8);
+            flowLayout.MinimumLineSpacing = 2;
+            flowLayout.SectionInset = new UIEdgeInsets(2, 8, 2, 8);
 
             var width = ((float)UIScreen.MainScreen.Bounds.Width - flowLayout.SectionInset.Left - flowLayout.SectionInset.Right - (flowLayout.MinimumInteritemSpacing));
             var height = 60.0f;

@@ -7,6 +7,7 @@ using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
 using MvvmCross.Platform.Logging;
+using System.Text;
 
 namespace MovieApp.Core.ViewModels
 {
@@ -75,6 +76,25 @@ namespace MovieApp.Core.ViewModels
                 {
                     foreach(var item in dataSource)
                     {
+                        StringBuilder desc = new StringBuilder();
+
+                        desc.AppendLine("Название:");
+                        desc.AppendLine(item.title);
+                        desc.AppendLine("Средняя оценка:");
+                        desc.AppendLine(item.vote_average);
+                        desc.AppendLine("Количество голосов:");
+                        desc.AppendLine(item.vote_count.ToString());
+                        desc.AppendLine("Популярность:");
+                        desc.AppendLine(item.popularity);
+                        desc.AppendLine("Язык оригинала:");
+                        desc.AppendLine(item.original_language);
+                        desc.AppendLine("Оригинальное название:");
+                        desc.AppendLine(item.original_title);
+                        desc.AppendLine("Описание:");
+                        desc.AppendLine(item.overview);
+                        desc.AppendLine("Дата релиза:");
+                        desc.AppendLine(item.release_date);
+
                         Movies.Add(new DataItemVM(
                             vote_count: item.vote_count,
                             id: item.id,
@@ -85,7 +105,8 @@ namespace MovieApp.Core.ViewModels
                             original_language: item.original_language,
                             original_title: item.original_title,
                             overview: item.overview,
-                            release_date: item.release_date
+                            release_date: item.release_date,
+                            description: desc
                         ));
                     }
                 });

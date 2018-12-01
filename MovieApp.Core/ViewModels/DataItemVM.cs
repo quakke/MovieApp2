@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using MvvmCross.Core.ViewModels;
 
 namespace MovieApp.Core.ViewModels
@@ -27,11 +28,13 @@ namespace MovieApp.Core.ViewModels
 
         public string ReleaseDate { get; protected set; }
 
+        public StringBuilder Description { get; protected set; }
+
         #endregion
 
         #region Constructor
 
-        public DataItemVM(int vote_count, int id, string vote_average, string title, string popularity, string poster_path, string original_language, string original_title, string overview, string release_date)
+        public DataItemVM(int vote_count, int id, string vote_average, string title, string popularity, string poster_path, string original_language, string original_title, string overview, string release_date, StringBuilder description)
         {
             VoteCount = vote_count;
             Id = id;
@@ -43,6 +46,7 @@ namespace MovieApp.Core.ViewModels
             OriginalTitle = original_title;
             Overview = overview;
             ReleaseDate = release_date;
+            Description = description;
         }
 
         #endregion

@@ -61,8 +61,6 @@ namespace MovieApp.iOS.Views.Cells
 
         protected DataCollectionViewCell(IntPtr handle) : base(handle)
         {
-            this.BackgroundColor = UIColor.Blue;
-
             this.DelayBind(() => {
                 InitializeControls();
 
