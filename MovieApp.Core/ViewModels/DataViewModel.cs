@@ -147,8 +147,6 @@ namespace MovieApp.Core.ViewModels
         {
             //base.Prepare(parameter);
 
-            //var navigationBundle = parameter.ReadAs<BaseBundle>();
-            //this.InitFromBundle(navigationBundle);
         }
 
         #endregion

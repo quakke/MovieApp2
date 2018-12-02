@@ -3,7 +3,7 @@ using System.Text;
 
 namespace MovieApp.Core.ViewModels
 {
-    public interface IDataItemVM
+    public interface IDataItemVM 
     {
         int Id { get; }
 
