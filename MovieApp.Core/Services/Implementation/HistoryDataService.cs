@@ -24,7 +24,12 @@ namespace MovieApp.Core.Services.Implementation
 
         protected override MovieResponseItem ConvertToDBO(MovieResponseItem dbo, DataItemVM model)
         {
-            return dbo;
+            return new MovieResponseItem
+            {
+                id = model.Id,
+                title = model.Title,
+                poster_path = model.PosterPath
+            };
         }
 
         protected override string GetId(DataItemVM model)
