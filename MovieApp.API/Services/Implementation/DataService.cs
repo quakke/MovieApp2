@@ -12,7 +12,7 @@ namespace MovieApp.API.Services.Implementation
     {
         protected string GET_MOVIES_URL = "https://api.themoviedb.org/3/movie/popular?api_key=e119b30526ac3ac9490972484ad7077a&language=en-US&page=";
 
-        public async Task<List<MovieResponseItem>> GetMovies(int page)
+        public async Task<IList<MovieResponseItem>> GetMovies(int page)
         {
             var url = ($"{GET_MOVIES_URL}{page}");
 
@@ -25,8 +25,6 @@ namespace MovieApp.API.Services.Implementation
             HttpResponseMessage response = await httpClient.SendAsync(request);
 
             var json = await response.Content.ReadAsStringAsync();
-
-            List<MovieResponseItem> result = new List<MovieResponseItem>();
 
             var jsonDeserealize = JsonConvert.DeserializeObject<MoviesResponse>(json);
 

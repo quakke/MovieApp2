@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Realms;
 
 namespace MovieApp.API.Models
 {
-    public class MoviesResponse
+    public class MoviesResponse : RealmObject
     {
         public string page { get; set; }
 
-        public List<MovieResponseItem> results { get; set; }
+        public IList<MovieResponseItem> results { get; }
     }
 }

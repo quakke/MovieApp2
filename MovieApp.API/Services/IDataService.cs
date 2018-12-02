@@ -8,6 +8,6 @@ namespace MovieApp.API.Services
     public interface IDataService
     {
         // Получить список всех фильмов
-        Task<List<MovieResponseItem>> GetMovies(int page);
+        Task<IList<MovieResponseItem>> GetMovies(int page);
     }
 }

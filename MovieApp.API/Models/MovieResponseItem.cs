@@ -1,8 +1,9 @@
 ﻿using System;
+using Realms;
 
 namespace MovieApp.API.Models
 {
-    public class MovieResponseItem
+    public class MovieResponseItem : RealmObject
     {
         public int vote_count { get; set; }
 
