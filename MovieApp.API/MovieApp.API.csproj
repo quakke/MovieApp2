@@ -31,7 +31,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\Implementation\DataService.cs" />
-    <Compile Include="Services\Fake\FakeDataService.cs" />
     <Compile Include="Models\MovieResponseItem.cs" />
     <Compile Include="Models\MoviesResponse.cs" />
   </ItemGroup>
@@ -58,7 +57,6 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Services\Implementation\" />
-    <Folder Include="Services\Fake\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

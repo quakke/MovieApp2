@@ -15,6 +15,8 @@ namespace MovieApp.Core.ViewModels
     {
         #region Fields
 
+        private int countOfPages = 10;
+
         #endregion
 
         #region Commands
@@ -71,6 +73,7 @@ namespace MovieApp.Core.ViewModels
 
         public DataViewModel()
         {
+
         }
 
         #endregion
@@ -84,13 +87,20 @@ namespace MovieApp.Core.ViewModels
 
             try
             {
-                var dataSource = await DataService.GetMovies();
+                // TODO: конечно, по-хорошему, подгружать данные тогда, когда сроллим страницу. Но пока оставлю так
+                // переделаю, если останется время
+                List<MovieResponseItem> param = new List<MovieResponseItem>();
+                for (var i = 1; i <= countOfPages; i++)
+                {
+                    var dataSource = await DataService.GetMovies(i);
+                    param.AddRange(dataSource);
+                }
 
                 Movies = new List<DataItemVM>();
 
                 InvokeOnMainThread(() => 
                 {
-                    foreach(var item in dataSource)
+                    foreach(var item in param)
                     {
                         StringBuilder desc = new StringBuilder();
 
@@ -120,7 +130,6 @@ namespace MovieApp.Core.ViewModels
             {
                 Loading = true;
             }
-
         }
 
         private void OnMovieSelected(DataItemVM item)

@@ -13,11 +13,6 @@ namespace MovieApp.Core
     {
         public override void Initialize()
         {
-            //CreatableTypes()
-                //.EndingWith("Service")
-                //.AsInterfaces()
-                //.RegisterAsLazySingleton();
-
             Mvx.RegisterSingleton<IDataService>(() => new DataService());
 
             RegisterAppStart<DataViewModel>();

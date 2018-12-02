@@ -12,10 +12,8 @@ namespace MovieApp.API.Services.Implementation
     {
         protected string GET_MOVIES_URL = "https://api.themoviedb.org/3/movie/popular?api_key=e119b30526ac3ac9490972484ad7077a&language=en-US&page=";
 
-        public async Task<List<MovieResponseItem>> GetMovies()
+        public async Task<List<MovieResponseItem>> GetMovies(int page)
         {
-            int page = 1;
-
             var url = ($"{GET_MOVIES_URL}{page}");
 
             HttpClientHandler handler = new HttpClientHandler();
