@@ -5,7 +5,7 @@ namespace MovieApp.Core.ViewModels
 {
     public interface IDataItemVM 
     {
-        int Id { get; }
+        string Id { get; }
 
         string Title { get; }
 

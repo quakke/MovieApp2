@@ -8,6 +8,7 @@ using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
 using MvvmCross.Platform.Logging;
 using System.Text;
+using MovieApp.Core.Services;
 
 namespace MovieApp.Core.ViewModels
 {
@@ -65,6 +66,8 @@ namespace MovieApp.Core.ViewModels
 
         #region Services
 
+        protected new IHistoryDataService HistoryService => Mvx.Resolve<IHistoryDataService>();
+
         protected new IDataService DataService => Mvx.Resolve<IDataService>();
 
         #endregion
@@ -119,6 +122,13 @@ namespace MovieApp.Core.ViewModels
                             "https://image.tmdb.org/t/p/w200" + item.poster_path,
                             desc
                         ));
+
+                        SaveInfoInHistory(new DataItemVM(
+                            item.id,
+                            item.title,
+                            "https://image.tmdb.org/t/p/w200" + item.poster_path,
+                            desc
+                        ));
                     }
                 });
             }
@@ -135,6 +145,25 @@ namespace MovieApp.Core.ViewModels
         private void OnMovieSelected(DataItemVM item)
         {
             ShowViewModel<DataDetailsViewModel, DataItemVM>(item);
+        }
+
+        #endregion
+
+        #region History
+
+        public Task SaveInfoInHistory(DataItemVM item)
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    HistoryService.InsertOrUpdate(item);
+                }
+                catch (Exception ex)
+                {
+                    MvxTrace.Trace(ex.StackTrace);
+                }
+            });
         }
 
         #endregion

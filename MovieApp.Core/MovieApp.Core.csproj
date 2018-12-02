@@ -36,6 +36,10 @@
     <Compile Include="ViewModels\StartViewModel.cs" />
     <Compile Include="ViewModels\IDataItemVM.cs" />
     <Compile Include="ViewModels\DataItemVM.cs" />
+    <Compile Include="Services\Implementation\DataBaseService.cs" />
+    <Compile Include="Services\IDataBaseService.cs" />
+    <Compile Include="Services\Implementation\HistoryDataService.cs" />
+    <Compile Include="Services\IHistoryDataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

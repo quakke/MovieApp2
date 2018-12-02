@@ -8,7 +8,7 @@ namespace MovieApp.Core.ViewModels
     {
         #region Properties
 
-        public int Id { get; protected set; }
+        public string Id { get; protected set; }
 
         public string Title { get; protected set; }
 
@@ -20,7 +20,7 @@ namespace MovieApp.Core.ViewModels
 
         #region Constructor
 
-        public DataItemVM(int id, string title, string posterPath, StringBuilder description)
+        public DataItemVM(string id, string title, string posterPath, StringBuilder description)
         {
             Id = id;
             Title = title;

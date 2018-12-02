@@ -5,9 +5,10 @@ namespace MovieApp.API.Models
 {
     public class MovieResponseItem : RealmObject
     {
-        public int vote_count { get; set; }
+        public string vote_count { get; set; }
 
-        public int id { get; set; }
+        [PrimaryKey]
+        public string id { get; set; }
 
         public string vote_average { get; set; }
 
