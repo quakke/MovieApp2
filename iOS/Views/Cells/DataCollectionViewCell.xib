@@ -19,15 +19,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YTO-UW-tbd">
-                        <rect key="frame" x="12" y="12" width="40" height="36"/>
+                        <rect key="frame" x="6" y="12" width="40" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="6rp-yr-6zO"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p88-tP-DEB">
-                        <rect key="frame" x="64" y="12" width="254" height="36"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p88-tP-DEB">
+                        <rect key="frame" x="58" y="12" width="266" height="36"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -35,11 +40,11 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="p88-tP-DEB" secondAttribute="bottom" constant="12" id="29j-HM-iXO"/>
                 <constraint firstAttribute="bottom" secondItem="YTO-UW-tbd" secondAttribute="bottom" constant="12" id="7xf-L9-BKS"/>
-                <constraint firstAttribute="trailing" secondItem="p88-tP-DEB" secondAttribute="trailing" constant="12" id="BiX-Iq-pKu"/>
+                <constraint firstAttribute="trailing" secondItem="p88-tP-DEB" secondAttribute="trailing" constant="6" id="BiX-Iq-pKu"/>
                 <constraint firstItem="YTO-UW-tbd" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" constant="12" id="EbB-qU-gOz"/>
                 <constraint firstItem="p88-tP-DEB" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" constant="12" id="K41-Ra-JJD"/>
                 <constraint firstItem="p88-tP-DEB" firstAttribute="leading" secondItem="YTO-UW-tbd" secondAttribute="trailing" constant="12" id="bG6-Eg-oLf"/>
-                <constraint firstItem="YTO-UW-tbd" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" constant="12" id="x4F-qE-LcZ"/>
+                <constraint firstItem="YTO-UW-tbd" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" constant="6" id="x4F-qE-LcZ"/>
             </constraints>
             <size key="customSize" width="330" height="55"/>
             <connections>
