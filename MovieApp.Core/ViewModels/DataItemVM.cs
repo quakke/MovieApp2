@@ -8,25 +8,11 @@ namespace MovieApp.Core.ViewModels
     {
         #region Properties
 
-        public int VoteCount { get; protected set; }
-
         public int Id { get; protected set; }
-
-        public string VoteAverage { get; protected set; }
 
         public string Title { get; protected set; }
 
-        public string Popularity { get; protected set; }
-
         public string PosterPath { get; protected set; }
-
-        public string OriginalLanguage { get; protected set; }
-
-        public string OriginalTitle { get; protected set; }
-
-        public string Overview { get; protected set; }
-
-        public string ReleaseDate { get; protected set; }
 
         public StringBuilder Description { get; protected set; }
 
@@ -34,18 +20,11 @@ namespace MovieApp.Core.ViewModels
 
         #region Constructor
 
-        public DataItemVM(int vote_count, int id, string vote_average, string title, string popularity, string poster_path, string original_language, string original_title, string overview, string release_date, StringBuilder description)
+        public DataItemVM(int id, string title, string posterPath, StringBuilder description)
         {
-            VoteCount = vote_count;
             Id = id;
-            VoteAverage = vote_average;
             Title = title;
-            Popularity = popularity;
-            PosterPath = poster_path;
-            OriginalLanguage = original_language;
-            OriginalTitle = original_title;
-            Overview = overview;
-            ReleaseDate = release_date;
+            PosterPath = posterPath;
             Description = description;
         }
 

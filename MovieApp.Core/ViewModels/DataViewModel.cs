@@ -32,6 +32,20 @@ namespace MovieApp.Core.ViewModels
 
         #region Properties
 
+        private bool _loading;
+        public virtual bool Loading
+        {
+            get
+            {
+                return _loading;
+            }
+            set
+            {
+                _loading = value;
+                InvokeOnMainThread(() => RaisePropertyChanged(() => Loading));
+            }
+        }
+
         private List<DataItemVM> _movies;
         public List<DataItemVM> Movies
         {
@@ -66,6 +80,8 @@ namespace MovieApp.Core.ViewModels
         //загрузка фильмов
         private async Task LoadContent()
         {
+            Loading = false;
+
             try
             {
                 var dataSource = await DataService.GetMovies();
@@ -78,35 +94,20 @@ namespace MovieApp.Core.ViewModels
                     {
                         StringBuilder desc = new StringBuilder();
 
-                        desc.AppendLine("Название:");
-                        desc.AppendLine(item.title);
-                        desc.AppendLine("Средняя оценка:");
-                        desc.AppendLine(item.vote_average);
-                        desc.AppendLine("Количество голосов:");
-                        desc.AppendLine(item.vote_count.ToString());
-                        desc.AppendLine("Популярность:");
-                        desc.AppendLine(item.popularity);
-                        desc.AppendLine("Язык оригинала:");
-                        desc.AppendLine(item.original_language);
-                        desc.AppendLine("Оригинальное название:");
-                        desc.AppendLine(item.original_title);
-                        desc.AppendLine("Описание:");
-                        desc.AppendLine(item.overview);
-                        desc.AppendLine("Дата релиза:");
-                        desc.AppendLine(item.release_date);
+                        desc.AppendLine("Название:").AppendLine(item.title);
+                        desc.AppendLine("Средняя оценка:").AppendLine(item.vote_average);
+                        desc.AppendLine("Количество голосов:").AppendLine(item.vote_count.ToString());
+                        desc.AppendLine("Популярность:").AppendLine(item.popularity);
+                        desc.AppendLine("Язык оригинала:").AppendLine(item.original_language);
+                        desc.AppendLine("Оригинальное название:").AppendLine(item.original_title);
+                        desc.AppendLine("Описание:").AppendLine(item.overview);
+                        desc.AppendLine("Дата релиза:").AppendLine(DateTime.Parse(item.release_date).ToString());
 
                         Movies.Add(new DataItemVM(
-                            vote_count: item.vote_count,
-                            id: item.id,
-                            vote_average: item.vote_average,
-                            title: item.title,
-                            popularity: item.popularity,
-                            poster_path: item.poster_path,
-                            original_language: item.original_language,
-                            original_title: item.original_title,
-                            overview: item.overview,
-                            release_date: item.release_date,
-                            description: desc
+                            item.id,
+                            item.title,
+                            "https://image.tmdb.org/t/p/w200" + item.poster_path,
+                            desc
                         ));
                     }
                 });
@@ -115,6 +116,11 @@ namespace MovieApp.Core.ViewModels
             {
                 MvxTrace.Error(() => ex.StackTrace);
             }
+            finally
+            {
+                Loading = true;
+            }
+
         }
 
         private void OnMovieSelected(DataItemVM item)

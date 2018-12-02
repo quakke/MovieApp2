@@ -10,5 +10,7 @@ namespace MovieApp.Core.ViewModels
         IMvxCommand SelectionChangedCommand { get; }
 
         List<DataItemVM> Movies { get; }
+
+        bool Loading { get; }
     }
 }

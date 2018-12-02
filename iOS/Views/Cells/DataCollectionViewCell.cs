@@ -50,6 +50,7 @@ namespace MovieApp.iOS.Views.Cells
             var set = this.CreateBindingSet<DataCollectionViewCell, IDataItemVM>();
 
             set.Bind(DescriptionLabel).To(vm => vm.Title);
+            set.Bind(IconImageView).For(i => i.Image).To(vm => vm.PosterPath);
 
             set.Apply();
         }

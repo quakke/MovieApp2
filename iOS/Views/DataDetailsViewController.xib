@@ -26,41 +26,41 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="aA5-Mo-evs">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="216.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VQ5-T5-bN7">
-                                    <rect key="frame" x="67.5" y="0.0" width="240" height="184"/>
+                                    <rect key="frame" x="16" y="0.0" width="343" height="184"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="184" id="xkg-LZ-geQ"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtH-mn-jFH">
-                                    <rect key="frame" x="0.0" y="196" width="375" height="471"/>
+                                    <rect key="frame" x="16" y="196" width="343" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="EtH-mn-jFH" secondAttribute="trailing" id="CoC-QG-o88"/>
+                                <constraint firstAttribute="trailing" secondItem="EtH-mn-jFH" secondAttribute="trailing" constant="16" id="CoC-QG-o88"/>
                                 <constraint firstAttribute="bottom" secondItem="EtH-mn-jFH" secondAttribute="bottom" id="NsC-qH-Cfn"/>
-                                <constraint firstItem="EtH-mn-jFH" firstAttribute="leading" secondItem="aA5-Mo-evs" secondAttribute="leading" id="sVf-yA-hfD"/>
+                                <constraint firstAttribute="trailing" secondItem="VQ5-T5-bN7" secondAttribute="trailing" constant="16" id="OkV-VG-joJ"/>
+                                <constraint firstItem="EtH-mn-jFH" firstAttribute="leading" secondItem="aA5-Mo-evs" secondAttribute="leading" constant="16" id="sVf-yA-hfD"/>
+                                <constraint firstItem="VQ5-T5-bN7" firstAttribute="leading" secondItem="aA5-Mo-evs" secondAttribute="leading" constant="16" id="v9w-tc-AiK"/>
                             </constraints>
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="aA5-Mo-evs" firstAttribute="centerY" secondItem="bdk-c5-HEt" secondAttribute="centerY" id="Edr-Ey-392"/>
                         <constraint firstItem="aA5-Mo-evs" firstAttribute="centerX" secondItem="bdk-c5-HEt" secondAttribute="centerX" id="Ew6-m7-RHm"/>
                         <constraint firstItem="aA5-Mo-evs" firstAttribute="top" secondItem="bdk-c5-HEt" secondAttribute="top" id="Gve-oj-NG2"/>
                         <constraint firstItem="aA5-Mo-evs" firstAttribute="leading" secondItem="bdk-c5-HEt" secondAttribute="leading" id="WrW-jM-Zbv"/>
                         <constraint firstAttribute="trailing" secondItem="aA5-Mo-evs" secondAttribute="trailing" id="YW9-6y-Wwd"/>
-                        <constraint firstAttribute="bottom" secondItem="aA5-Mo-evs" secondAttribute="bottom" id="hH7-Vb-8Wa"/>
+                        <constraint firstAttribute="bottom" secondItem="aA5-Mo-evs" secondAttribute="bottom" constant="24" id="hH7-Vb-8Wa"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bdk-c5-HEt" firstAttribute="centerY" secondItem="2" secondAttribute="centerY" id="1PY-4U-b0s"/>
                 <constraint firstAttribute="bottom" secondItem="bdk-c5-HEt" secondAttribute="bottom" id="8Ds-8i-cbg"/>
                 <constraint firstItem="bdk-c5-HEt" firstAttribute="top" secondItem="2" secondAttribute="top" id="AAw-ym-P6q"/>
                 <constraint firstAttribute="trailing" secondItem="bdk-c5-HEt" secondAttribute="trailing" id="Qg7-3O-xbW"/>

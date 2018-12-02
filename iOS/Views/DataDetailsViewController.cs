@@ -1,6 +1,7 @@
 ﻿using System;
 using MovieApp.Core.ViewModels;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.Binding.iOS.Views;
 using MvvmCross.iOS.Views;
 using UIKit;
 
@@ -18,7 +19,7 @@ namespace MovieApp.iOS.Views
         protected void InitializeControls()
         {
             Title = "Описание";
-
+            
             SetupImageView(DescriptionImageView);
 
             SetupDescriptionLabel(DescriptionLabel);
@@ -56,7 +57,7 @@ namespace MovieApp.iOS.Views
 
         private void BindDescriptionImageView(UIImageView descriptionImageView, MvxFluentBindingDescriptionSet<DataDetailsViewController, IDataDetailsViewModel> set)
         {
-            //throw new NotImplementedException();
+            set.Bind(descriptionImageView).To(vm => vm.MovieItem.PosterPath);
         }
 
         #endregion
@@ -73,7 +74,6 @@ namespace MovieApp.iOS.Views
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
         }
     }
 }
