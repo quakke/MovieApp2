@@ -21,7 +21,7 @@ namespace MovieApp.Core.ViewModels
 
         private int countOfPages = 10;
 
-        private bool isInternetAvailable = false;
+        public bool isInternetAvailable = false;
 
         #endregion
 
@@ -89,7 +89,7 @@ namespace MovieApp.Core.ViewModels
         #region Private
 
         //загрузка фильмов
-        private async Task LoadContent()
+        public async Task LoadContent()
         {
             Loading = false;
 
