@@ -1,5 +1,6 @@
 ﻿using System;
 using Realms;
+using System.Text;
 
 namespace MovieApp.API.Models
 {

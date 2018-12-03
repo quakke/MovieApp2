@@ -9,6 +9,9 @@ using MvvmCross.Platform.Platform;
 using MvvmCross.Platform.Logging;
 using System.Text;
 using MovieApp.Core.Services;
+using System.Collections.ObjectModel;
+using System.Linq;
+using MovieApp.Core.ViewModels;
 
 namespace MovieApp.Core.ViewModels
 {
@@ -17,6 +20,8 @@ namespace MovieApp.Core.ViewModels
         #region Fields
 
         private int countOfPages = 10;
+
+        private bool isInternetAvailable = false;
 
         #endregion
 
@@ -90,47 +95,63 @@ namespace MovieApp.Core.ViewModels
 
             try
             {
-                // TODO: конечно, по-хорошему, подгружать данные тогда, когда сроллим страницу. Но пока оставлю так
-                // переделаю, если останется время
-                List<MovieResponseItem> param = new List<MovieResponseItem>();
-                for (var i = 1; i <= countOfPages; i++)
+                // Если интернет есть, то делаем вот так
+                if (isInternetAvailable)
                 {
-                    var dataSource = await DataService.GetMovies(i);
-                    param.AddRange(dataSource);
-                }
-
-                Movies = new List<DataItemVM>();
-
-                InvokeOnMainThread(() => 
-                {
-                    foreach(var item in param)
+                    // TODO: конечно, по-хорошему, подгружать данные тогда, когда сроллим страницу. Но пока оставлю так
+                    // переделаю, если останется время
+                    List<MovieResponseItem> param = new List<MovieResponseItem>();
+                    for (var i = 1; i <= countOfPages; i++)
                     {
-                        StringBuilder desc = new StringBuilder();
-
-                        desc.AppendLine("Название:").AppendLine(item.title);
-                        desc.AppendLine("Средняя оценка:").AppendLine(item.vote_average);
-                        desc.AppendLine("Количество голосов:").AppendLine(item.vote_count.ToString());
-                        desc.AppendLine("Популярность:").AppendLine(item.popularity);
-                        desc.AppendLine("Язык оригинала:").AppendLine(item.original_language);
-                        desc.AppendLine("Оригинальное название:").AppendLine(item.original_title);
-                        desc.AppendLine("Описание:").AppendLine(item.overview);
-                        desc.AppendLine("Дата релиза:").AppendLine(DateTime.Parse(item.release_date).ToString());
-
-                        Movies.Add(new DataItemVM(
-                            item.id,
-                            item.title,
-                            "https://image.tmdb.org/t/p/w200" + item.poster_path,
-                            desc
-                        ));
-
-                        SaveInfoInHistory(new DataItemVM(
-                            item.id,
-                            item.title,
-                            "https://image.tmdb.org/t/p/w200" + item.poster_path,
-                            desc
-                        ));
+                        var dataSource = await DataService.GetMovies(i);
+                        param.AddRange(dataSource);
                     }
-                });
+
+                    Movies = new List<DataItemVM>();
+
+                    InvokeOnMainThread(() =>
+                    {
+                        foreach (var item in param)
+                        {
+                            StringBuilder desc = new StringBuilder();
+
+                            desc.AppendLine("Название:").AppendLine(!String.IsNullOrWhiteSpace(item.title) ? item.title : "");
+                            desc.AppendLine("Средняя оценка:").AppendLine(!String.IsNullOrWhiteSpace(item.vote_average) ? item.vote_average : "");
+                            desc.AppendLine("Количество голосов:").AppendLine(!String.IsNullOrWhiteSpace(item.vote_count) ? item.vote_count : "");
+                            desc.AppendLine("Популярность:").AppendLine(!String.IsNullOrWhiteSpace(item.popularity) ? item.popularity : "");
+                            desc.AppendLine("Язык оригинала:").AppendLine(!String.IsNullOrWhiteSpace(item.original_language) ? item.original_language : "");
+                            desc.AppendLine("Оригинальное название:").AppendLine(!String.IsNullOrWhiteSpace(item.original_title) ? item.original_title : "");
+                            desc.AppendLine("Описание:").AppendLine(!String.IsNullOrWhiteSpace(item.overview) ? item.overview : "");
+                            desc.AppendLine("Дата релиза:").AppendLine(!String.IsNullOrWhiteSpace(item.release_date) ? DateTime.Parse(item.release_date).ToString() : "");
+
+                            var dataItem = new DataItemVM(
+                                item.id,
+                                item.title,
+                                "https://image.tmdb.org/t/p/w200" + item.poster_path,
+                                desc
+                            );
+
+                            Movies.Add(dataItem);
+
+                            SaveInfoInHistory(dataItem);
+                        }
+                    });
+                }
+                else
+                {
+                    // Если интернета нет, то делаем вот так
+                    var history = await LoadHistory();
+
+                    Movies = new List<DataItemVM>();
+
+                    InvokeOnMainThread(() =>
+                    {
+                        foreach (var item in history.ToList())
+                        {
+                            Movies.Add(new DataItemVM(item.Id, item.Title, item.PosterPath, item.Description));
+                        }
+                    });
+                }
             }
             catch(Exception ex)
             {
@@ -163,6 +184,42 @@ namespace MovieApp.Core.ViewModels
                 {
                     MvxTrace.Trace(ex.StackTrace);
                 }
+            });
+        }
+
+        public Task ClearHistory()
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    HistoryService.DeleteAll();
+                }
+                catch (Exception ex)
+                {
+                    MvxTrace.Trace(ex.StackTrace);
+                }
+            });
+        }
+
+        public Task<ObservableCollection<IDataItemVM>> LoadHistory()
+        {
+            return Task.Run(() =>
+            {
+                ObservableCollection<IDataItemVM> dataSource = null;
+
+                try
+                {
+                    var history = HistoryService.LoadAll().Reverse();
+
+                    dataSource = new ObservableCollection<IDataItemVM>(history.ToList());
+                }
+                catch(Exception ex)
+                {
+                    MvxTrace.Trace(ex.StackTrace);
+                }
+
+                return dataSource;
             });
         }
 
