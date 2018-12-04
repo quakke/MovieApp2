@@ -15,7 +15,7 @@ namespace MovieApp.Core
     {
         public override void Initialize()
         {
-            Mvx.RegisterSingleton<IHistoryDataService>(() => new HistoryDataService());
+            Mvx.RegisterSingleton<IHistoryService>(() => new HistoryService());
 
             Mvx.RegisterSingleton<IDataService>(() => new DataService());
 

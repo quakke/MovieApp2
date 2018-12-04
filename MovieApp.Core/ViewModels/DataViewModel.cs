@@ -71,7 +71,7 @@ namespace MovieApp.Core.ViewModels
 
         #region Services
 
-        protected new IHistoryDataService HistoryService => Mvx.Resolve<IHistoryDataService>();
+        protected new IHistoryService HistoryService => Mvx.Resolve<IHistoryService>();
 
         protected new IDataService DataService => Mvx.Resolve<IDataService>();
 
